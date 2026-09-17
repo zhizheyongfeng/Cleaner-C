@@ -1,4 +1,4 @@
-# DiskLens（暂定名）· C 盘 AI 分析清理工具
+# Cleaner-C · C 盘 AI 分析清理工具
 
 > 扫描 C 盘 → 可视化看到"到底是谁占了我的空间" → 悬浮或点击任意一项，AI 用大白话告诉你：**这是什么、能不能清、清了会发生什么。**
 
@@ -100,5 +100,7 @@ WizTree / WinDirStat 解决了另一半问题：扫得快、看得清，但它�
 
 - 定位：**开源项目**，鼓励使用者自行填写模型 Key 与 endpoint。
 - **分发原则**：终端用户**不需要安装 Node，也不需要任何额外运行时**。实测：Node 22 单文件打包（SEA）产物 87.1 MB，在剥离 Node 的 PATH 环境下可直接运行，仅依赖系统 DLL —— 详见 [docs/ARCHITECTURE.md](docs/ARCHITECTURE.md) §10。
-- 待定项（进入开发阶段前确定）：仓库名、开源协议。
+- 项目名称：**Cleaner-C**（已定，与 GitHub 仓库同名）。
+- 仓库地址：<https://github.com/zhizheyongfeng/Cleaner-C>
+- 待定项：开源协议（M1 开始前确定）。
 - 本仓库当前**不含任何代码**，规划文档完成即为 M0 的交付物。

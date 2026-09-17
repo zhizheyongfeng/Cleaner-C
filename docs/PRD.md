@@ -1,4 +1,4 @@
-# PRD · C 盘 AI 分析清理工具（DiskLens 暂定名）
+# PRD · Cleaner-C（C 盘 AI 分析清理工具）
 
 > 文档定位：**精简版产品需求**。技术实现见 [ARCHITECTURE.md](ARCHITECTURE.md)，排期见 [ROADMAP.md](ROADMAP.md)。
 
