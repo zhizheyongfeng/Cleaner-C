@@ -35,6 +35,11 @@ node_modules/
 dist/
 build/
 out/
+# .NET 构建产物（spikes/ 与后续 src/ 都会生成）
+bin/
+obj/
+artifacts/
+publish/
 target/
 coverage/
 *.tsbuildinfo

@@ -1,0 +1,84 @@
+=== MFT 直读原型 (Cleaner-C spike) ===
+时间: 2026-09-17 11:51:48
+管理员: True
+
+OEM 标识           : NTFS    
+每扇区字节         : 512
+每簇扇区           : 8  => 簇大小 4096 字节
+MFT 起始簇         : 786432  => 偏移 3221225472
+MFT 记录大小       : 1024 字节
+
+$MFT 数据运行数    : 6
+$MFT 数据大小      : 1013448704 字节 (966.5 MB)
+$MFT 已分配        : 1013448704 字节 (966.5 MB)
+
+MFT 记录总数       : 989696
+
+--- 解析完成 ---
+耗时               : 1846 ms
+处理记录           : 989696
+使用中记录         : 988564
+  文件             : 724225
+  目录             : 264339
+重解析点(REPARSE)  : 41990
+解析错误           : 0
+
+--- 口径对比（核心验证）---
+物理口径(每记录一次) : 117.92 GB
+逻辑口径(仅真实名字) : 122.60 GB
+逻辑口径(含DOS别名)  : 185.26 GB
+差额(真实逻辑-物理)  : 4.68 GB  (3.8%)
+已分配(含稀疏)      : 120.85 GB
+硬链接文件数(名字项>1): 25182
+名字项总数          : 1647126  (真实 1004758 + DOS别名 642368)
+--- 顶层目录（物理口径，按 MFT 记录归属主父目录）---
+       45.59 GB   逻辑      46.22 GB   (未归属)
+       41.02 GB   逻辑      44.80 GB   Windows
+       26.66 GB   逻辑      26.71 GB   Users
+        1.74 GB   逻辑       1.75 GB   ProgramData
+        0.98 GB   逻辑       1.12 GB   Program Files (x86)
+        0.94 GB   逻辑       0.94 GB   $MFT
+        0.38 GB   逻辑       0.38 GB   pcsuite
+        0.25 GB   逻辑       0.25 GB   swapfile.sys
+        0.16 GB   逻辑       0.23 GB   Program Files
+        0.07 GB   逻辑       0.07 GB   System Volume Information
+        0.06 GB   逻辑       0.06 GB   $LogFile
+        0.03 GB   逻辑       0.03 GB   LenovoQuickFix
+        0.02 GB   逻辑       0.02 GB   $Extend
+        0.00 GB   逻辑       0.00 GB   $Bitmap
+        0.00 GB   逻辑       0.00 GB   Recovery
+        0.00 GB   逻辑       0.00 GB   SoftwareDecode.exe
+        0.00 GB   逻辑       0.00 GB   SoftwareJiaMi.exe
+        0.00 GB   逻辑       0.00 GB   $UpCase
+        0.00 GB   逻辑       0.00 GB   SolidWorks_Flexnet_Server
+        0.00 GB   逻辑       0.00 GB   $Boot
+        0.00 GB   逻辑       0.00 GB   DumpStack.log
+        0.00 GB   逻辑       0.00 GB   $MFTMirr
+        0.00 GB   逻辑       0.00 GB   $AttrDef
+        0.00 GB   逻辑       0.00 GB   tmp
+        0.00 GB   逻辑       0.00 GB   SoftwareLocker.txt
+        0.00 GB   逻辑       0.00 GB   $Recycle.Bin
+        0.00 GB   逻辑       0.00 GB   .GamingRoot
+        0.00 GB   逻辑       0.00 GB   config.ini
+        0.00 GB   逻辑       0.00 GB   $Secure
+        0.00 GB   逻辑       0.00 GB   Progr籽쫻̈́蠀퍜玑팠ܳ飬玓嫀ŉ籺쫦Ѥ耀vicecent粇쫥՜言AV0000
+        0.00 GB   逻辑       0.00 GB   $Volume
+        0.00 GB   逻辑       0.00 GB   $BadClus
+        0.00 GB   逻辑       0.00 GB   $WINRE_BACKUP_PARTITION.MARKER
+
+--- 归属失败诊断（在聚合循环之后统计）---
+父为0的记录数        : 11455
+顶层名为空的记录数    : 0
+未归属停止点 TOP 10   : 
+   索引 368909 次数 285877 名称 amd64_microsoft-windows-l..erprisesn.resources_31bf3856ad364e35_10.0.19041.6466_el-gr_f0be32b39190d345
+   索引 487653 次数 1795 名称 (null)
+   索引 62685 次数 1048 名称 (null)
+   索引 976749 次数 937 名称 viewer
+   索引 962039 次数 397 名称 (null)
+   索引 950114 次数 271 名称 error.html
+   索引 847453 次数 245 名称 (null)
+   索引 962017 次数 152 名称 (null)
+   索引 961981 次数 113 名称 (null)
+   索引 555928 次数 89 名称 (null)
+
+总耗时(含读取+解析): 2242 ms

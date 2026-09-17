@@ -32,7 +32,7 @@ WizTree / WinDirStat 解决了另一半问题：扫得快、看得清，但它�
 
 | | CCleaner 类 | WizTree / WinDirStat | **本工具** |
 |---|---|---|---|
-| 扫描速度 | 快 | 极快（MFT） | 快（M1 借鉴 WizTree 路线，见架构文档） |
+| 扫描速度 | 快 | 极快（MFT 直读） | **极快：直读 NTFS `$MFT`，实测 2.19 s 完成 98.9 万条记录**（详见 [架构文档](docs/ARCHITECTURE.md) §3） |
 | 占用可视化 | 无 | 优秀 | 优秀（Treemap，面积 = 占用） |
 | 逐项解释 | 无 | 无 | **有：本地规则 + AI 双通道** |
 | 是否告诉你"删了会怎样" | 无 | 无 | **有：风险评估 + 关联内容 + 可回滚性** |
@@ -101,17 +101,19 @@ WizTree / WinDirStat 解决了另一半问题：扫得快、看得清，但它�
 | 文档 | 内容 |
 |---|---|
 | [docs/PRD.md](docs/PRD.md) | 产品需求：用户画像、场景、P0/P1/P2 功能分级、明确不做的事、成功指标 |
-| [docs/ARCHITECTURE.md](docs/ARCHITECTURE.md) | 技术架构：扫描三路线与实测取舍、正确性陷阱、规则引擎、AI 网关（含**模型自动发现与测速**）、**分发形态（用户为何不需要装 Node）**、API 草案、安全模型、本机实测基线附录 |
+| [docs/ARCHITECTURE.md](docs/ARCHITECTURE.md) | 技术架构：**MFT 直读扫描内核**（实测 2.19 s / 98.9 万条记录）、正确性陷阱（硬链接 / DOS 别名 / 孤儿记录 / 差额分解）、规则引擎、AI 网关（含模型自动发现与测速）、**分发形态（自包含单文件，零运行时安装）**、API 草案、安全模型、本机实测基线附录 |
 | [docs/ROADMAP.md](docs/ROADMAP.md) | 里程碑 M0–M4：每阶段的目标、交付物、验收标准、反向清单 |
 
 ## 7. 关于仓库本身
 
 - 定位：**开源项目**，鼓励使用者自行填写模型 Key 与 endpoint。
-- **分发原则**：终端用户**不需要安装 Node，也不需要任何额外运行时**。实测：Node 22 单文件打包（SEA）产物 87.1 MB，在剥离 Node 的 PATH 环境下可直接运行，仅依赖系统 DLL —— 详见 [docs/ARCHITECTURE.md](docs/ARCHITECTURE.md) §10。
+- **分发原则**：终端用户**不需要安装任何运行时**（不需要 .NET、不需要 Node）。实测：.NET 自包含单文件产物 **37.58 MB**，可直接运行 —— 详见 [docs/ARCHITECTURE.md](docs/ARCHITECTURE.md) §10。
+- **权限前提（重要）**：为实现 MFT 加速，程序**必须以管理员身份运行**（启动即弹 UAC）。这是硬性前提：拒绝授权或不具备管理员权限的环境下**无法使用本工具**。我们对这一点如实披露，不宣称"零门槛"。
 - 项目名称：**Cleaner-C**（已定，与 GitHub 仓库同名）。
 - 仓库地址：<https://github.com/zhizheyongfeng/Cleaner-C>
+- **技术栈**：后端 **.NET 10 / ASP.NET Core**（MFT 扫描内核、规则引擎、AI 网关同进程）+ 前端 **Vite / React / TypeScript**；SQLite（Microsoft.Data.Sqlite）。
 - 开源协议：**[MIT](LICENSE)**（已定）。
-- 本仓库当前**不含任何代码**，规划文档完成即为 M0 的交付物。
+- 本仓库当前**不含产品代码**；已完成 M0 规划文档与一个 **MFT 直读原型（spike）**，后者将作为 M1a 扫描内核的骨架。
 
 ## 8. 开源协议与免责声明
 
