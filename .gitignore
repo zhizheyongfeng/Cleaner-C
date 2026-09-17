@@ -1,0 +1,65 @@
+# ---------------------------------------------------------------
+# 本仓库为 public。以下规则用于防止隐私内容被推送。
+# 修改本文件前请先确认：被移除的规则不会导致密钥或本机信息外泄。
+# ---------------------------------------------------------------
+
+# ---- 仅本地保留，明确不上传远端 ----
+/docs/git.md
+.pi/
+
+# ---- 安全红线：密钥与模型配置 ----
+# 本项目按架构文档 §5.5 将用户 API Key 存于本机配置文件，误提交即为密钥泄露。
+# 需要提交的配置请改用 settings.example.json 之类的示例文件（只放字段名，不放值）。
+.env
+.env.*
+*.key
+*.pem
+secrets.json
+credentials.json
+settings.json
+settings.local.json
+**/settings.json
+
+# ---- 扫描结果与索引（可能包含本机真实路径）----
+*.sqlite
+*.sqlite3
+*.db
+*.db-wal
+*.db-journal
+scan-*.json
+report-*.md
+
+# ---- 依赖与构建产物 ----
+node_modules/
+.pnpm-store/
+dist/
+build/
+out/
+target/
+coverage/
+*.tsbuildinfo
+
+# ---- 二进制产物 ----
+*.exe
+*.dll
+*.so
+*.dylib
+*.pdb
+*.blob
+
+# ---- 日志与临时文件 ----
+*.log
+npm-debug.log*
+yarn-error.log*
+*.tmp
+*.temp
+
+# ---- 编辑器与操作系统 ----
+.vscode/*
+!.vscode/extensions.json
+.idea/
+*.swp
+*~
+.DS_Store
+Thumbs.db
+desktop.ini
